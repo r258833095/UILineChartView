@@ -78,6 +78,7 @@
         numYIntervals = 5;
         numXIntervals = 1;
         drawYAxis = YES;
+        //模拟器需要改为systemFontOfSize
 		yLabelFont = [[UIFont fontWithName:@"GeezaPro-Bold" size:14] retain]; 
 		xLabelFont = [[UIFont fontWithName:@"HiraKakuProN-W6" size:12] retain];
 		valueLabelFont = [[UIFont fontWithName:@"HiraKakuProN-W6" size:10] retain];
