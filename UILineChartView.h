@@ -18,7 +18,19 @@
 
 @property (nonatomic, assign) float maxValue;
 
-@property (nonatomic, assign) NSDictionary *dictData;
+@property (nonatomic, retain) NSDictionary *dictData;
+/*
+ dicData Format:
+{
+    @"data"=[
+        {
+            @"data"=[@100,@20,@30,@0],
+            @"title"=@"test"
+        }
+    ],
 
+    @"x_labels"=[@1,@2,@3,@4]
+ }
+ */
 
 @end
