@@ -11,7 +11,7 @@
 @implementation UILineChartView
 @synthesize interval, minValue, maxValue;
 @synthesize dictData;
-
+@synthesize drawYAxis;
 static CGSize contentSize;
 - (id)initWithFrame:(CGRect)frame setContentSize:(CGSize)size
 {
@@ -26,7 +26,7 @@ static CGSize contentSize;
 - (void)drawRect:(CGRect)rect
 {
     
-    PCLineChartView* xlineChartView = [[PCLineChartView alloc] initWithFrame:CGRectMake(10,10,self.frame.size.width-20,self.frame.size.height-20)];
+    PCLineChartView* xlineChartView = [[PCLineChartView alloc] initWithFrame:CGRectMake(0,0,self.frame.size.width,self.frame.size.height)];
     if (interval) {
         xlineChartView.interval=interval;
     }
@@ -39,12 +39,12 @@ static CGSize contentSize;
     [xlineChartView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
     [self addSubview:xlineChartView];
     
-    UIScrollView *scrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(60, self.frame.origin.y, self.frame.size.width-100, self.frame.size.height)];
+    UIScrollView *scrollView=[[UIScrollView alloc]initWithFrame:CGRectMake((drawYAxis?0:50), 0, self.frame.size.width-(drawYAxis?0:50), self.frame.size.height)];
     scrollView.contentSize = contentSize;
     [scrollView setBackgroundColor:[UIColor clearColor]];
     [self addSubview:scrollView];
     
-    PCLineChartView* lineChartView = [[PCLineChartView alloc] initWithFrame:CGRectMake(10,10,contentSize.width-20,contentSize.height-20)];
+    PCLineChartView* lineChartView = [[PCLineChartView alloc] initWithFrame:CGRectMake((drawYAxis?0:-50),0,contentSize.width+(drawYAxis?0:50),contentSize.height)];
     if (interval) {
         lineChartView.interval = interval;
     }
@@ -54,7 +54,7 @@ static CGSize contentSize;
     if (maxValue) {
         lineChartView.maxValue = maxValue;
     }
-    lineChartView.drawYAxis = NO;
+    lineChartView.drawYAxis = drawYAxis;
     
     
     [lineChartView setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];

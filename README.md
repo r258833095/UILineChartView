@@ -21,6 +21,7 @@ UILineChartView 使用方法
     view.interval=50;
     view.maxValue=100;
     view.minValue=-150;
+    view.drawYAxis=NO;
     [self.view addSubview:view];
     
 

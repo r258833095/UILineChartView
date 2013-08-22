@@ -19,6 +19,8 @@
 @property (nonatomic, assign) float maxValue;
 
 @property (nonatomic, retain) NSDictionary *dictData;
+
+@property (nonatomic, assign) BOOL drawYAxis;
 /*
  dicData Format:
 {
